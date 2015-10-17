@@ -1,0 +1,9 @@
+package com.stuff.stuffmod;
+
+public class HyperSpacePortal {
+
+	public HyperSpacePortal() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

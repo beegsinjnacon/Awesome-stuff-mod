@@ -1,0 +1,46 @@
+package com.stuff.stuffmod;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+@Mod(modid = Stuff.MODID, version = Stuff.VERSION)
+public class Stuff
+{
+	
+	public static Item unRefAwesome;
+	public static Item earthEssence;
+	public static Item waterEssence;
+	
+	public static Block crystallizedEarth;
+	public static Block crystallizedWater;
+	
+    public static final String MODID = "stuff";
+    public static final String VERSION = "0.1.1";
+    
+    @EventHandler
+    public void preinit(FMLInitializationEvent event)
+    {
+    	unRefAwesome = new AwesomenessItem();
+    	earthEssence = new EssenceItem("earthEssence");
+    	waterEssence = new EssenceItem("waterEssence");
+    	
+    	crystallizedEarth = new crystallizedEssence("crystallizedEarth");
+    	crystallizedWater = new crystallizedEssence("crystallizedWater");
+    	
+    	stuffEventHandler handler = new stuffEventHandler();
+    	
+    	GameRegistry.registerItem(unRefAwesome, "Unrefined Awesomeness");
+    	GameRegistry.registerItem(earthEssence, "Earth Essence");
+    	GameRegistry.registerItem(waterEssence, "Water Essence");
+    	GameRegistry.registerWorldGenerator(handler, 0);
+    	
+    	GameRegistry.registerBlock(crystallizedEarth, "Crystallized Earth");
+    	GameRegistry.registerBlock(crystallizedWater, "Crystallized Water");
+    	
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="EditorSelectionDialog">
+		<item value="true" key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL"/>
+	</section>
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="500" key="dialogHeight"/>
+		<item value="800" key="dialogWidth"/>
+		<list key="textEntries">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+</section>

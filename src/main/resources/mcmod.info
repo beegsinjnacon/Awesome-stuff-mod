@@ -1,0 +1,16 @@
+[
+{
+  "modid": "stuff",
+  "name": "stuff",
+  "description": "my mod.",
+  "version": "${0.1}",
+  "mcversion": "${1.7.10}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["baconeggninja"],
+  "credits": "mmmmmmmeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

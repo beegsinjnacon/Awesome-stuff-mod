@@ -1,0 +1,9 @@
+package com.stuff.stuffmod;
+
+public class HyperSpaceTeleporter {
+
+	public HyperSpaceTeleporter() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

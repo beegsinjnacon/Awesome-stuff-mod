@@ -1,0 +1,9 @@
+package com.stuff.stuffmod;
+
+public class WorldProviderHyperSpace {
+
+	public WorldProviderHyperSpace() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
