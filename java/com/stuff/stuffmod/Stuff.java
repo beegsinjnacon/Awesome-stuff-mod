@@ -27,6 +27,7 @@ public class Stuff
 	public static Block crystallizedWater;
 	public static Block crystallizedFire;
 	public static Block crystallizedAir;
+	public static Block HyperSpacePortal;
 	
     public static final String MODID = "stuff";
     public static final String VERSION = "0.1.1";
@@ -44,6 +45,7 @@ public class Stuff
     	crystallizedWater = new crystallizedEssence("crystallizedWater");
     	crystallizedFire = new crystallizedEssence("crystallizedFire");
     	crystallizedAir = new crystallizedEssence("crystallizedAir");
+    	HyperSpacePortal = new HyperSpacePortal();
     	
     	stuffEventHandler handler = new stuffEventHandler();
     	
@@ -59,6 +61,7 @@ public class Stuff
     	GameRegistry.registerBlock(crystallizedWater, "Crystallized Water");
     	GameRegistry.registerBlock(crystallizedFire, "Crystallized Fire");
     	GameRegistry.registerBlock(crystallizedAir, "Crystallized Air");
+    	GameRegistry.registerBlock(HyperSpacePortal, "HyperSpace Portal");
     	
     	//GameRegistry.addRecipe(new ItemStack(Stuff.crystallizedWater), 
     			//" L ",
@@ -66,7 +69,7 @@ public class Stuff
     			//" L ",
     			//"L", Items.bone, "R", Items.redstone);
     	
-    	//DimensionManager.registerProviderType(dimension, WorldProviderHyperSpace.class, false);
+    	DimensionManager.registerProviderType(dimension, WorldProviderHyperSpace.class, false);
     	
     }
 }

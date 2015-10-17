@@ -27,7 +27,7 @@ private NoiseGeneratorOctaves noiseGen2;
 private NoiseGeneratorOctaves noiseGen3;
 public NoiseGeneratorOctaves noiseGen4;
 public NoiseGeneratorOctaves noiseGen5;
-private World endWorld;
+private World hyperSpaceWorld;
 private double[] densities;
 private BiomeGenBase[] biomesForGeneration;
 double[] noiseData1;
@@ -40,7 +40,7 @@ private static final String __OBFID = "CL_00000397";
 
 public ChunkProviderHyperSpace(World p_i2007_1_, long p_i2007_2_)
 {
-  this.endWorld = p_i2007_1_;
+  this.hyperSpaceWorld = p_i2007_1_;
   this.endRNG = new Random(p_i2007_2_);
   this.noiseGen1 = new NoiseGeneratorOctaves(this.endRNG, 16);
   this.noiseGen2 = new NoiseGeneratorOctaves(this.endRNG, 16);
@@ -95,7 +95,7 @@ public void func_147420_a(int p_147420_1_, int p_147420_2_, Block[] p_147420_3_,
             {
               Block block = null;
               if (d15 > 0.0D) {
-                block = Blocks.end_stone;
+                block = Blocks.air;
               }
               p_147420_3_[j2] = block;
               j2 += short1;
@@ -122,7 +122,7 @@ public void func_147421_b(int p_147421_1_, int p_147421_2_, Block[] p_147421_3_,
 
 public void replaceBiomeBlocks(int p_147421_1_, int p_147421_2_, Block[] p_147421_3_, BiomeGenBase[] p_147421_4_, byte[] meta)
 {
-  ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, p_147421_1_, p_147421_2_, p_147421_3_, meta, p_147421_4_, this.endWorld);
+  ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, p_147421_1_, p_147421_2_, p_147421_3_, meta, p_147421_4_, this.hyperSpaceWorld);
   MinecraftForge.EVENT_BUS.post(event);
   if (event.getResult() == cpw.mods.fml.common.eventhandler.Event.Result.DENY) {
     return;
@@ -132,8 +132,8 @@ public void replaceBiomeBlocks(int p_147421_1_, int p_147421_2_, Block[] p_14742
     {
       byte b0 = 1;
       int i1 = -1;
-      Block block = Blocks.end_stone;
-      Block block1 = Blocks.end_stone;
+      Block block = Blocks.air;
+      Block block1 = Blocks.air;
       for (int j1 = 127; j1 >= 0; j1--)
       {
         int k1 = (l * 16 + k) * 128 + j1;
@@ -180,10 +180,10 @@ public Chunk provideChunk(int p_73154_1_, int p_73154_2_)
   this.endRNG.setSeed(p_73154_1_ * 341873128712L + p_73154_2_ * 132897987541L);
   Block[] ablock = new Block[32768];
   byte[] meta = new byte[ablock.length];
-  this.biomesForGeneration = this.endWorld.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
+  this.biomesForGeneration = this.hyperSpaceWorld.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
   func_147420_a(p_73154_1_, p_73154_2_, ablock, this.biomesForGeneration);
   replaceBiomeBlocks(p_73154_1_, p_73154_2_, ablock, this.biomesForGeneration, meta);
-  Chunk chunk = new Chunk(this.endWorld, ablock, meta, p_73154_1_, p_73154_2_);
+  Chunk chunk = new Chunk(this.hyperSpaceWorld, ablock, meta, p_73154_1_, p_73154_2_);
   byte[] abyte = chunk.getBiomeArray();
   for (int k = 0; k < abyte.length; k++) {
     abyte[k] = ((byte)this.biomesForGeneration[k].biomeID);
@@ -299,14 +299,14 @@ public void populate(IChunkProvider p_73153_1_, int p_73153_2_, int p_73153_3_)
 {
   net.minecraft.block.BlockFalling.fallInstantly = true;
   
-  MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(p_73153_1_, this.endWorld, this.endWorld.rand, p_73153_2_, p_73153_3_, false));
+  MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(p_73153_1_, this.hyperSpaceWorld, this.hyperSpaceWorld.rand, p_73153_2_, p_73153_3_, false));
   
   int k = p_73153_2_ * 16;
   int l = p_73153_3_ * 16;
-  BiomeGenBase biomegenbase = this.endWorld.getBiomeGenForCoords(k + 16, l + 16);
-  biomegenbase.decorate(this.endWorld, this.endWorld.rand, k, l);
+  BiomeGenBase biomegenbase = this.hyperSpaceWorld.getBiomeGenForCoords(k + 16, l + 16);
+  biomegenbase.decorate(this.hyperSpaceWorld, this.hyperSpaceWorld.rand, k, l);
   
-  MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(p_73153_1_, this.endWorld, this.endWorld.rand, p_73153_2_, p_73153_3_, false));
+  MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(p_73153_1_, this.hyperSpaceWorld, this.hyperSpaceWorld.rand, p_73153_2_, p_73153_3_, false));
   
   net.minecraft.block.BlockFalling.fallInstantly = false;
 }
@@ -335,7 +335,7 @@ public String makeString()
 
 public List getPossibleCreatures(EnumCreatureType p_73155_1_, int p_73155_2_, int p_73155_3_, int p_73155_4_)
 {
-  BiomeGenBase biomegenbase = this.endWorld.getBiomeGenForCoords(p_73155_2_, p_73155_4_);
+  BiomeGenBase biomegenbase = this.hyperSpaceWorld.getBiomeGenForCoords(p_73155_2_, p_73155_4_);
   return biomegenbase.getSpawnableList(p_73155_1_);
 }
 
