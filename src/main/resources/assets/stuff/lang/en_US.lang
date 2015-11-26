@@ -1,5 +1,14 @@
 item.stuff:unRefAwesome.name=Unrefined Awesomeness
 item.stuff:earthEssence.name=Earth Essence
 item.stuff:waterEssence.name=Water Essence
+item.stuff:fireEssence.name=Fire Essence
+item.stuff:airEssence.name=Air Essence
+item.stuff:pureAwesome.name=Pure Awesomeness
 tile.stuff:crystallizedEarth.name=Crystallized Earth
-tile.stuff:crystallizedWater.name=Crystallized water
+tile.stuff:crystallizedWater.name=Crystallized Water
+tile.stuff:crystallizedFire.name=Crystallized Fire
+tile.stuff:crystallizedAir.name=Crystallized Air
+tile.stuff:slipperyBlock.name=Slippery Block
+tile.stuff:antiSlipperyBlock.name=Anti-Slip Block
+tile.stuff:speedMaintenenceBlock.name=Speed Maintenance Block
+tile.stuff:awesomeBlock.name=Awesome Block

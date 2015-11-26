@@ -69,6 +69,7 @@ public class WorldGenWaterAltar extends WorldGenerator implements IWorldGenerato
 		}
 	}
 
+	@Override
 	public boolean generate(World world, Random rand, int x, int y, int z) {
 		//check that each corner is one of the valid spawn blocks
 		if(!locationIsValidSpawn(world, x, y, z) || !locationIsValidSpawn(world, x + 4, y, z) || !locationIsValidSpawn(world, x + 4, y, z + 4) || !locationIsValidSpawn(world, x, y, z + 4))

@@ -10,11 +10,11 @@ public class crystallizedEssence extends Block {
 		super(Material.rock);
 		setBlockName(Stuff.MODID + ":" + name);
 		setBlockTextureName(Stuff.MODID + ":" + name);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(Stuff.StuffTab);
 		setHardness(1.25F);
 		setResistance(4.5F);
 		setStepSound(soundTypeStone);
-		setHarvestLevel("pickaxe", 2);
+		setHarvestLevel("pickaxe", 0);
 	}
 	
 }

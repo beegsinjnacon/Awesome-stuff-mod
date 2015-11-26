@@ -1,5 +1,6 @@
 package com.stuff.stuffmod;
 
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
@@ -29,6 +30,6 @@ public class WorldProviderHyperSpace extends WorldProvider {
 	}
 	@Override
 	public IChunkProvider createChunkGenerator(){
-	return new ChunkProviderHyperSpace(worldObj, worldObj.getSeed());
+	return new ChunkProviderHyperSpace(worldObj);
 	}
 }

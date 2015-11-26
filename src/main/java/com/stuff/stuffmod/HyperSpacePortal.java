@@ -34,13 +34,12 @@ public class HyperSpacePortal extends BlockPortal
 			else if (player.dimension != Stuff.dimension)
 			{
 				player.timeUntilPortal = 10;
-
 				player.mcServer.getConfigurationManager().transferPlayerToDimension(player, Stuff.dimension, new HyperSpaceTeleporter(mServer.worldServerForDimension(Stuff.dimension)));
 			}
 			else
 			{
 				player.timeUntilPortal = 10;
-				player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new HyperSpaceTeleporter(mServer.worldServerForDimension(1)));
+				player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 1, new HyperSpaceTeleporter(mServer.worldServerForDimension(1)));
 			}
 		}
 	}
@@ -51,12 +50,12 @@ public class HyperSpacePortal extends BlockPortal
 		byte b0 = 0;
 		byte b1 = 0;
 
-		if (par1World.getBlock(par2 - 1, par3, par4) == Blocks.sandstone || par1World.getBlock(par2 + 1, par3, par4) == Blocks.sandstone)
+		if (par1World.getBlock(par2 - 1, par3, par4) == Stuff.AwesomeBlock || par1World.getBlock(par2 + 1, par3, par4) == Stuff.AwesomeBlock)
 		{
 			b0 = 1;
 		}
 
-		if (par1World.getBlock(par2, par3, par4 - 1) == Blocks.sandstone || par1World.getBlock(par2, par3, par4 + 1) == Blocks.sandstone)
+		if (par1World.getBlock(par2, par3, par4 - 1) == Stuff.AwesomeBlock || par1World.getBlock(par2, par3, par4 + 1) == Stuff.AwesomeBlock)
 		{
 			b1 = 1;
 		}
@@ -89,7 +88,7 @@ public class HyperSpacePortal extends BlockPortal
 
 						if (flag)
 						{
-							if (j1 != Blocks.sandstone)
+							if (j1 != Stuff.AwesomeBlock)
 							{
 								return false;
 							}
@@ -133,7 +132,7 @@ public class HyperSpacePortal extends BlockPortal
 			;
 		}
 
-		if (par1World.getBlock(par2, i1 - 1, par4) != Blocks.sandstone)
+		if (par1World.getBlock(par2, i1 - 1, par4) != Stuff.AwesomeBlock)
 		{
 			par1World.setBlockToAir(par2, par3, par4);
 		}
@@ -146,7 +145,7 @@ public class HyperSpacePortal extends BlockPortal
 				;
 			}
 
-			if (j1 == 3 && par1World.getBlock(par2, i1 + j1, par4) == Blocks.sandstone)
+			if (j1 == 3 && par1World.getBlock(par2, i1 + j1, par4) == Stuff.AwesomeBlock)
 			{
 				boolean flag = par1World.getBlock(par2 - 1, par3, par4) == this || par1World.getBlock(par2 + 1, par3, par4) == this;
 				boolean flag1 = par1World.getBlock(par2, par3, par4 - 1) == this || par1World.getBlock(par2, par3, par4 + 1) == this;
@@ -157,7 +156,7 @@ public class HyperSpacePortal extends BlockPortal
 				}
 				else
 				{
-					if ((par1World.getBlock(par2 + b0, par3, par4 + b1) != Blocks.sandstone || par1World.getBlock(par2 - b0, par3, par4 - b1) != this) && (par1World.getBlock(par2 - b0, par3, par4 - b1) != Blocks.sandstone || par1World.getBlock(par2 + b0, par3, par4 + b1) != this))
+					if ((par1World.getBlock(par2 + b0, par3, par4 + b1) != Stuff.AwesomeBlock || par1World.getBlock(par2 - b0, par3, par4 - b1) != this) && (par1World.getBlock(par2 - b0, par3, par4 - b1) != Stuff.AwesomeBlock || par1World.getBlock(par2 + b0, par3, par4 + b1) != this))
 					{
 						par1World.setBlockToAir(par2, par3, par4);
 					}

@@ -29,7 +29,8 @@ public class HyperSpaceTeleporter extends Teleporter
      * A list of valid keys for the destinationCoordainteCache. These are based on the X & Z of the players initial
      * location.
      */
-    @SuppressWarnings("rawtypes")
+
+    
 	private final List destinationCoordinateKeys = new ArrayList();
 
     public HyperSpaceTeleporter(WorldServer par1WorldServer)
@@ -60,8 +61,8 @@ public class HyperSpaceTeleporter extends Teleporter
             int k = MathHelper.floor_double(par1Entity.posZ);
             byte b0 = 1;
             byte b1 = 0;
-
-            for (int l = -2; l <= 2; ++l)
+	
+	            for (int l = -2; l <= 2; ++l)
             {
                 for (int i1 = -2; i1 <= 2; ++i1)
                 {
@@ -76,7 +77,7 @@ public class HyperSpaceTeleporter extends Teleporter
                 }
             }
 
-            par1Entity.setLocationAndAngles((double)i, (double)j, (double)k, par1Entity.rotationYaw, 0.0F);
+            par1Entity.setLocationAndAngles(i, j, k, par1Entity.rotationYaw, 0.0F);
             par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
         }
     }
@@ -84,7 +85,7 @@ public class HyperSpaceTeleporter extends Teleporter
     /**
      * Place an entity in a nearby portal which already exists.
      */
-    @SuppressWarnings("unchecked")
+
 	@Override
     public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8)
     {
@@ -114,11 +115,11 @@ public class HyperSpaceTeleporter extends Teleporter
         {
             for (k1 = l - short1; k1 <= l + short1; ++k1)
             {
-                double d5 = (double)k1 + 0.5D - par1Entity.posX;
+                double d5 = k1 + 0.5D - par1Entity.posX;
 
                 for (int l1 = i1 - short1; l1 <= i1 + short1; ++l1)
                 {
-                    double d6 = (double)l1 + 0.5D - par1Entity.posZ;
+                    double d6 = l1 + 0.5D - par1Entity.posZ;
 
                     for (int i2 = this.worldServerInstance.getActualHeight() - 1; i2 >= 0; --i2)
                     {
@@ -129,7 +130,7 @@ public class HyperSpaceTeleporter extends Teleporter
                                 --i2;
                             }
 
-                            d4 = (double)i2 + 0.5D - par1Entity.posY;
+                            d4 = i2 + 0.5D - par1Entity.posY;
                             double d7 = d5 * d5 + d4 * d4 + d6 * d6;
 
                             if (d3 < 0.0D || d7 < d3)
@@ -153,9 +154,9 @@ public class HyperSpaceTeleporter extends Teleporter
                 this.destinationCoordinateKeys.add(Long.valueOf(j1));
             }
 
-            double d8 = (double)i + 0.5D;
-            double d9 = (double)j + 0.5D;
-            d4 = (double)k + 0.5D;
+            double d8 = i + 0.5D;
+            double d9 = j + 0.5D;
+            d4 = k + 0.5D;
             int j2 = -1;
 
             if (this.worldServerInstance.getBlock(i - 1, j, k) == Stuff.HyperSpacePortal)
@@ -199,9 +200,9 @@ public class HyperSpaceTeleporter extends Teleporter
                     k3 = Direction.offsetX[l2];
                     l3 = Direction.offsetZ[l2];
                     k1 = i - k3;
-                    d8 -= (double)k3;
+                    d8 -= k3;
                     int i4 = k - l3;
-                    d4 -= (double)l3;
+                    d4 -= l3;
                     flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j, i4 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, i4 + j3 + l3);
                     flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, j, i4 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, j + 1, i4 + j3);
                 }
@@ -222,8 +223,8 @@ public class HyperSpaceTeleporter extends Teleporter
                     f2 = 0.0F;
                 }
 
-                d8 += (double)((float)k3 * f1 + f2 * (float)i3);
-                d4 += (double)((float)l3 * f1 + f2 * (float)j3);
+                d8 += k3 * f1 + f2 * i3;
+                d4 += l3 * f1 + f2 * j3;
                 float f3 = 0.0F;
                 float f4 = 0.0F;
                 float f5 = 0.0F;
@@ -252,9 +253,9 @@ public class HyperSpaceTeleporter extends Teleporter
 
                 double d10 = par1Entity.motionX;
                 double d11 = par1Entity.motionZ;
-                par1Entity.motionX = d10 * (double)f3 + d11 * (double)f6;
-                par1Entity.motionZ = d10 * (double)f5 + d11 * (double)f4;
-                par1Entity.rotationYaw = par8 - (float)(k2 * 90) + (float)(j2 * 90);
+                par1Entity.motionX = d10 * f3 + d11 * f6;
+                par1Entity.motionZ = d10 * f5 + d11 * f4;
+                par1Entity.rotationYaw = par8 - k2 * 90 + j2 * 90;
             }
             else
             {
@@ -301,11 +302,11 @@ public class HyperSpaceTeleporter extends Teleporter
 
         for (i2 = i - b0; i2 <= i + b0; ++i2)
         {
-            d1 = (double)i2 + 0.5D - par1Entity.posX;
+            d1 = i2 + 0.5D - par1Entity.posX;
 
             for (j2 = k - b0; j2 <= k + b0; ++j2)
             {
-                d2 = (double)j2 + 0.5D - par1Entity.posZ;
+                d2 = j2 + 0.5D - par1Entity.posZ;
                 label274:
 
                 for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
@@ -346,7 +347,7 @@ public class HyperSpaceTeleporter extends Teleporter
                                 }
                             }
 
-                            d4 = (double)k2 + 0.5D - par1Entity.posY;
+                            d4 = k2 + 0.5D - par1Entity.posY;
                             d3 = d1 * d1 + d4 * d4 + d2 * d2;
 
                             if (d0 < 0.0D || d3 < d0)
@@ -367,11 +368,11 @@ public class HyperSpaceTeleporter extends Teleporter
         {
             for (i2 = i - b0; i2 <= i + b0; ++i2)
             {
-                d1 = (double)i2 + 0.5D - par1Entity.posX;
+                d1 = i2 + 0.5D - par1Entity.posX;
 
                 for (j2 = k - b0; j2 <= k + b0; ++j2)
                 {
-                    d2 = (double)j2 + 0.5D - par1Entity.posZ;
+                    d2 = j2 + 0.5D - par1Entity.posZ;
                     label222:
 
                     for (k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2)
@@ -403,7 +404,7 @@ public class HyperSpaceTeleporter extends Teleporter
                                     }
                                 }
 
-                                d4 = (double)k2 + 0.5D - par1Entity.posY;
+                                d4 = k2 + 0.5D - par1Entity.posY;
                                 d3 = d1 * d1 + d4 * d4 + d2 * d2;
 
                                 if (d0 < 0.0D || d3 < d0)

@@ -8,7 +8,7 @@ public class EssenceItem extends Item {
 	public EssenceItem(String itemName) {
 		setUnlocalizedName(Stuff.MODID + ":" + itemName);
 		setTextureName(Stuff.MODID + ":" + itemName);
-		setCreativeTab(CreativeTabs.tabMaterials);
+		setCreativeTab(Stuff.StuffTab);
 	}
 
 }
