@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 
+/**
+ * World gen for HyperSpace.
+ * 
+ * Planned to have random cubes of vanilla generation.
+ */
 public class ChunkProviderHyperSpace implements IChunkProvider {
 
 	private World worldObj;

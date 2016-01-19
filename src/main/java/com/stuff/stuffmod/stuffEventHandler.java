@@ -2,6 +2,9 @@ package com.stuff.stuffmod;
 
 import java.util.Random;
 
+import com.stuff.stuffmod.worldgen.WorldGenEarthAltar;
+import com.stuff.stuffmod.worldgen.WorldGenWaterAltar;
+
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

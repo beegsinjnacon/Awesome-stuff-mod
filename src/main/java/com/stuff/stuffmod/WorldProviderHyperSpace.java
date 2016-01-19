@@ -1,10 +1,13 @@
 package com.stuff.stuffmod;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.client.IRenderHandler;
 
 public class WorldProviderHyperSpace extends WorldProvider {
 
@@ -32,4 +35,10 @@ public class WorldProviderHyperSpace extends WorldProvider {
 	public IChunkProvider createChunkGenerator(){
 	return new ChunkProviderHyperSpace(worldObj);
 	}
+	
+	@SideOnly(Side.CLIENT)
+    public IRenderHandler getSkyRenderer()
+    {
+	    return new HyperSpaceSkyRenderer();
+    }
 }
